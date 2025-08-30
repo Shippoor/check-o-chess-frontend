@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import sdk from "@farcaster/miniapp-sdk";
 import {
   Crown,
   Trophy,
@@ -62,6 +63,14 @@ export default function ChessPuzzleApp() {
   const navigateToScreen = (screen: string) => {
     setCurrentScreen(screen);
   };
+
+
+
+  useEffect(() => {
+      sdk.actions.ready();
+      sdk.actions.addMiniApp();
+  }, []);
+
 
   const HomeScreen = () => (
     <div className="space-y-8">
